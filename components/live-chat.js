@@ -26,7 +26,6 @@ class LiveChatComponent {
             <div class="live-chat-widget">
                 <div class="chat-toggle" id="chatToggle">
                     <i class="fas fa-brain"></i>
-                    <span class="chat-badge">AI</span>
                 </div>
                 <div class="chat-label">Live Chat</div>
                 <div class="chat-menu" id="chatMenu">
