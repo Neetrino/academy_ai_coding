@@ -229,13 +229,22 @@ window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
     const particles = document.querySelectorAll('.particle');
+    const modules = document.querySelector('.modules');
     
     if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        // Hero section moves slower than scroll, creating parallax effect
+        // But it should go under modules section
+        hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+        hero.style.zIndex = '1';
+    }
+    
+    if (modules) {
+        // Modules section stays in place but has glass effect
+        modules.style.zIndex = '10';
     }
     
     particles.forEach((particle, index) => {
-        const speed = 0.5 + (index * 0.1);
+        const speed = 0.3 + (index * 0.05);
         particle.style.transform = `translateY(${scrolled * speed}px)`;
     });
 });
