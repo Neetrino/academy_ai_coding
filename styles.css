@@ -437,6 +437,7 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    opacity: 0.9;
 }
 
 .section-subtitle {
@@ -457,11 +458,19 @@ body {
     padding: 6rem 0;
     position: relative;
     z-index: 10;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    background: rgba(10, 10, 10, 0.4);
-    border-top: 1px solid rgba(0, 212, 255, 0.2);
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 10, 10, 0) 0%,
+        rgba(10, 10, 10, 0.005) 20%,
+        rgba(10, 10, 10, 0.01) 40%,
+        rgba(10, 10, 10, 0.015) 60%,
+        rgba(10, 10, 10, 0.02) 80%,
+        rgba(10, 10, 10, 0.025) 100%
+    );
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-top: 1px solid transparent;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .modules-grid {
@@ -1767,5 +1776,373 @@ body {
         width: 70px;
         height: 70px;
         font-size: 1.8rem;
+    }
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--dark-card);
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: scale(0.8) translateY(50px);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.modal-header {
+    padding: 2rem 2rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 1rem 2rem 2rem;
+}
+
+.modal-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Bitrix Form Customization - Enhanced */
+.bitrix-form-wrapper {
+    position: relative;
+}
+
+/* Force override all Bitrix form styles with maximum specificity */
+.bitrix-form-wrapper .b24-form,
+.bitrix-form-wrapper form,
+.bitrix-form-wrapper .b24-form-container,
+.bitrix-form-wrapper .b24-form-wrapper {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Override all input fields */
+.bitrix-form-wrapper input[type="text"],
+.bitrix-form-wrapper input[type="email"],
+.bitrix-form-wrapper input[type="tel"],
+.bitrix-form-wrapper input[type="phone"],
+.bitrix-form-wrapper textarea,
+.bitrix-form-wrapper .b24-form-control,
+.bitrix-form-wrapper .b24-form-input,
+.bitrix-form-wrapper .b24-form-textarea,
+.bitrix-form-wrapper .b24-form-field input,
+.bitrix-form-wrapper .b24-form-field textarea {
+    background: var(--dark-surface) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    color: var(--text-primary) !important;
+    padding: 1rem !important;
+    font-size: 1rem !important;
+    font-family: 'Inter', sans-serif !important;
+    transition: all 0.3s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 1rem !important;
+}
+
+.bitrix-form-wrapper input:focus,
+.bitrix-form-wrapper textarea:focus,
+.bitrix-form-wrapper .b24-form-control:focus,
+.bitrix-form-wrapper .b24-form-input:focus,
+.bitrix-form-wrapper .b24-form-textarea:focus,
+.bitrix-form-wrapper .b24-form-field input:focus,
+.bitrix-form-wrapper .b24-form-field textarea:focus {
+    outline: none !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1) !important;
+}
+
+.bitrix-form-wrapper input::placeholder,
+.bitrix-form-wrapper textarea::placeholder,
+.bitrix-form-wrapper .b24-form-control::placeholder,
+.bitrix-form-wrapper .b24-form-input::placeholder,
+.bitrix-form-wrapper .b24-form-textarea::placeholder {
+    color: var(--text-muted) !important;
+}
+
+/* Override all labels */
+.bitrix-form-wrapper label,
+.bitrix-form-wrapper .b24-form-label,
+.bitrix-form-wrapper .b24-form-field label,
+.bitrix-form-wrapper .b24-form-title {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5rem !important;
+    display: block !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1rem !important;
+}
+
+/* Override all buttons */
+.bitrix-form-wrapper button,
+.bitrix-form-wrapper input[type="submit"],
+.bitrix-form-wrapper .b24-form-btn,
+.bitrix-form-wrapper .b24-form-submit,
+.bitrix-form-wrapper .b24-form-button {
+    background: var(--gradient-primary) !important;
+    border: none !important;
+    border-radius: 50px !important;
+    color: white !important;
+    padding: 1rem 2rem !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-family: 'Inter', sans-serif !important;
+    box-shadow: var(--shadow-glow) !important;
+    width: 100% !important;
+    margin-top: 1rem !important;
+}
+
+.bitrix-form-wrapper button:hover,
+.bitrix-form-wrapper input[type="submit"]:hover,
+.bitrix-form-wrapper .b24-form-btn:hover,
+.bitrix-form-wrapper .b24-form-submit:hover,
+.bitrix-form-wrapper .b24-form-button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4) !important;
+}
+
+.bitrix-form-wrapper button:active,
+.bitrix-form-wrapper input[type="submit"]:active,
+.bitrix-form-wrapper .b24-form-btn:active,
+.bitrix-form-wrapper .b24-form-submit:active,
+.bitrix-form-wrapper .b24-form-button:active {
+    transform: translateY(-1px) !important;
+}
+
+/* Override form groups and rows */
+.bitrix-form-wrapper .b24-form-group,
+.bitrix-form-wrapper .b24-form-field,
+.bitrix-form-wrapper .b24-form-row {
+    margin-bottom: 1.5rem !important;
+    display: block !important;
+}
+
+.bitrix-form-wrapper .b24-form-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+}
+
+/* Override textarea specifically */
+.bitrix-form-wrapper textarea,
+.bitrix-form-wrapper .b24-form-textarea {
+    min-height: 120px !important;
+    resize: vertical !important;
+}
+
+/* Override form title and description */
+.bitrix-form-wrapper .b24-form-title,
+.bitrix-form-wrapper .b24-form-description,
+.bitrix-form-wrapper h1,
+.bitrix-form-wrapper h2,
+.bitrix-form-wrapper h3,
+.bitrix-form-wrapper p {
+    color: var(--text-primary) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.bitrix-form-wrapper .b24-form-description {
+    color: var(--text-secondary) !important;
+    margin-bottom: 2rem !important;
+}
+
+/* Hide Bitrix branding */
+.bitrix-form-wrapper .b24-form-footer,
+.bitrix-form-wrapper .b24-form-powered,
+.bitrix-form-wrapper .b24-form-abuse {
+    display: none !important;
+}
+
+/* Maximum specificity override for Bitrix forms */
+body .bitrix-form-wrapper form,
+body .bitrix-form-wrapper .b24-form,
+body .bitrix-form-wrapper .b24-form-container {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+body .bitrix-form-wrapper input,
+body .bitrix-form-wrapper textarea,
+body .bitrix-form-wrapper select {
+    background: var(--dark-surface) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    color: var(--text-primary) !important;
+    padding: 1rem !important;
+    font-size: 1rem !important;
+    font-family: 'Inter', sans-serif !important;
+    transition: all 0.3s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 1rem !important;
+}
+
+body .bitrix-form-wrapper input:focus,
+body .bitrix-form-wrapper textarea:focus {
+    outline: none !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1) !important;
+}
+
+body .bitrix-form-wrapper label {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5rem !important;
+    display: block !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1rem !important;
+}
+
+body .bitrix-form-wrapper button,
+body .bitrix-form-wrapper input[type="submit"] {
+    background: var(--gradient-primary) !important;
+    border: none !important;
+    border-radius: 50px !important;
+    color: white !important;
+    padding: 1rem 2rem !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-family: 'Inter', sans-serif !important;
+    box-shadow: var(--shadow-glow) !important;
+    width: 100% !important;
+    margin-top: 1rem !important;
+}
+
+body .bitrix-form-wrapper button:hover,
+body .bitrix-form-wrapper input[type="submit"]:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4) !important;
+}
+
+/* Additional override for any remaining Bitrix elements */
+.bitrix-form-wrapper * {
+    box-sizing: border-box !important;
+}
+
+.bitrix-form-wrapper .b24-form-wrapper,
+.bitrix-form-wrapper .b24-form-container,
+.bitrix-form-wrapper .b24-form-content {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Modal responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 1rem;
+    }
+    
+    .modal-header {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+    
+    .modal-body {
+        padding: 1rem 1.5rem 1.5rem;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .bitrix-form-wrapper .b24-form-row {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        max-height: 100vh;
+    }
+    
+    .modal-header {
+        padding: 1rem;
+    }
+    
+    .modal-body {
+        padding: 1rem;
     }
 }

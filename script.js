@@ -329,6 +329,169 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Modal functionality
+function initModal() {
+    const modal = document.getElementById('modalForm');
+    const closeBtn = document.getElementById('closeModal');
+    const openButtons = document.querySelectorAll('.btn-primary');
+    
+    // Open modal function
+    function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    // Close modal function
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+    
+    // Add click event to all primary buttons
+    openButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal();
+        });
+    });
+    
+    // Close modal when clicking close button
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+// Force apply Bitrix form styles
+function forceApplyBitrixStyles() {
+    const bitrixWrapper = document.querySelector('.bitrix-form-wrapper');
+    if (!bitrixWrapper) return;
+    
+    // Wait for Bitrix form to load
+    const checkInterval = setInterval(() => {
+        const bitrixForm = bitrixWrapper.querySelector('form, .b24-form');
+        if (bitrixForm) {
+            clearInterval(checkInterval);
+            
+            // Force apply our styles
+            const inputs = bitrixWrapper.querySelectorAll('input, textarea, select');
+            const labels = bitrixWrapper.querySelectorAll('label');
+            const buttons = bitrixWrapper.querySelectorAll('button, input[type="submit"]');
+            const form = bitrixWrapper.querySelector('form, .b24-form');
+            
+            // Apply styles to form container
+            if (form) {
+                form.style.background = 'transparent';
+                form.style.border = 'none';
+                form.style.padding = '0';
+                form.style.margin = '0';
+                form.style.boxShadow = 'none';
+            }
+            
+            // Apply styles to inputs
+            inputs.forEach(input => {
+                input.style.background = 'var(--dark-surface)';
+                input.style.border = '2px solid rgba(255, 255, 255, 0.1)';
+                input.style.borderRadius = '8px';
+                input.style.color = 'var(--text-primary)';
+                input.style.padding = '1rem';
+                input.style.fontSize = '1rem';
+                input.style.fontFamily = 'Inter, sans-serif';
+                input.style.transition = 'all 0.3s ease';
+                input.style.width = '100%';
+                input.style.boxSizing = 'border-box';
+                input.style.marginBottom = '1rem';
+                
+                // Add focus event
+                input.addEventListener('focus', function() {
+                    this.style.outline = 'none';
+                    this.style.borderColor = 'var(--primary-color)';
+                    this.style.boxShadow = '0 0 0 3px rgba(0, 212, 255, 0.1)';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+            
+            // Apply styles to labels
+            labels.forEach(label => {
+                label.style.color = 'var(--text-primary)';
+                label.style.fontWeight = '600';
+                label.style.marginBottom = '0.5rem';
+                label.style.display = 'block';
+                label.style.fontFamily = 'Inter, sans-serif';
+                label.style.fontSize = '1rem';
+            });
+            
+            // Apply styles to buttons
+            buttons.forEach(button => {
+                button.style.background = 'linear-gradient(135deg, #00d4ff, #9c88ff)';
+                button.style.border = 'none';
+                button.style.borderRadius = '50px';
+                button.style.color = 'white';
+                button.style.padding = '1rem 2rem';
+                button.style.fontWeight = '600';
+                button.style.fontSize = '1rem';
+                button.style.cursor = 'pointer';
+                button.style.transition = 'all 0.3s ease';
+                button.style.fontFamily = 'Inter, sans-serif';
+                button.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.3)';
+                button.style.width = '100%';
+                button.style.marginTop = '1rem';
+                
+                // Add hover effects
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.boxShadow = '0 10px 30px rgba(0, 212, 255, 0.4)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.3)';
+                });
+            });
+            
+            // Hide Bitrix branding
+            const branding = bitrixWrapper.querySelectorAll('.b24-form-footer, .b24-form-powered, .b24-form-abuse');
+            branding.forEach(element => {
+                element.style.display = 'none';
+            });
+            
+            console.log('✅ Bitrix form styles applied successfully!');
+        }
+    }, 100);
+    
+    // Stop checking after 10 seconds
+    setTimeout(() => {
+        clearInterval(checkInterval);
+    }, 10000);
+}
+
+// Initialize modal when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait for components to load
+    setTimeout(() => {
+        initModal();
+        forceApplyBitrixStyles();
+    }, 200);
+});
+
 // Console log for debugging
 console.log('🚀 AI Coding Landing Page loaded successfully!');
 console.log('✨ All animations and interactions are ready!');
+console.log('📝 Modal form functionality initialized!');

@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Կապ - AI Coding</title>
+<<<<<<< HEAD
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="favicon.svg">
+=======
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+>>>>>>> glass-effect
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -117,33 +121,15 @@
             </div>
             
             <div class="contact-form-container">
-                <form class="contact-form" id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Անուն</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Թեմա</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Հաղորդագրություն</label>
-                        <textarea id="message" name="message" rows="6" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-large">
-                        <i class="fas fa-paper-plane"></i>
-                        Ուղարկել հաղորդագրություն
-                    </button>
-                </form>
+                <!-- Bitrix Form -->
+                <div class="bitrix-form-wrapper">
+                    <script data-b24-form="inline/13/t86odg" data-skip-moving="true">
+                    (function(w,d,u){
+                    var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                    var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                    })(window,document,'https://cdn-ru.bitrix24.ru/b29824050/crm/form/loader_13.js');
+                    </script>
+                </div>
             </div>
         </div>
     </section>
@@ -206,6 +192,7 @@
     <div id="footer-container"></div>
 
     <script src="js/components.js"></script>
+    <script src="js/chat-widget.js"></script>
     <script src="script.js"></script>
     <script src="js/contact.js"></script>
 </body>

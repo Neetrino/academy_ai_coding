@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Coding - Ծրագրավորման դասընթաց</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="favicon.svg">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -266,7 +264,36 @@
     <!-- Footer Container -->
     <div id="footer-container"></div>
 
+    <!-- Modal Form -->
+    <div id="modalForm" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <span class="gradient-text">Սկսել հիմա</span>
+                </h2>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-subtitle">
+                    Միացեք մեր AI Coding դասընթացին և սկսեք ձեր ծրագրավորման ճանապարհը
+                </p>
+                <!-- Bitrix Form -->
+                <div class="bitrix-form-wrapper">
+                    <script data-b24-form="inline/13/t86odg" data-skip-moving="true">
+                    (function(w,d,u){
+                    var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                    var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                    })(window,document,'https://cdn-ru.bitrix24.ru/b29824050/crm/form/loader_13.js');
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/components.js"></script>
+    <script src="js/chat-widget.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
