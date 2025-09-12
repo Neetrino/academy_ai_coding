@@ -46,6 +46,11 @@ function initScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                
+                // Special animation for feature cards
+                if (entry.target.classList.contains('feature-card')) {
+                    entry.target.style.animation = 'slideInFromBottom 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+                }
             }
         });
     }, observerOptions);
@@ -55,6 +60,54 @@ function initScrollAnimations() {
     animatedElements.forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
+    });
+    
+    // Enhanced feature cards animations
+    initFeatureCardsAnimations();
+}
+
+// Enhanced feature cards animations
+function initFeatureCardsAnimations() {
+    const featureCards = document.querySelectorAll('.feature-card');
+    
+    featureCards.forEach((card, index) => {
+        // Add staggered animation delay
+        card.style.animationDelay = `${index * 0.1}s`;
+        
+        // Enhanced hover effects
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-15px) scale(1.02)';
+            this.style.boxShadow = `
+                0 25px 50px rgba(0, 212, 255, 0.25),
+                0 0 0 1px rgba(0, 212, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1)
+            `;
+            
+            // Animate icon
+            const icon = this.querySelector('.feature-icon');
+            if (icon) {
+                icon.style.animation = 'iconPulse 0.6s ease-in-out';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3)';
+            
+            // Reset icon animation
+            const icon = this.querySelector('.feature-icon');
+            if (icon) {
+                icon.style.animation = '';
+            }
+        });
+        
+        // Add click effect
+        card.addEventListener('click', function() {
+            this.style.transform = 'translateY(-10px) scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            }, 150);
+        });
     });
 }
 
