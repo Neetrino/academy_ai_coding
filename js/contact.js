@@ -1,48 +1,9 @@
 // Contact page functionality
 document.addEventListener('DOMContentLoaded', function() {
-    initContactForm();
     initFAQ();
     initContactAnimations();
 });
 
-// Contact form handling
-function initContactForm() {
-    const form = document.getElementById('contactForm');
-    
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(form);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                subject: formData.get('subject'),
-                message: formData.get('message')
-            };
-            
-            // Show loading state
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Ուղարկվում է...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission (replace with actual API call)
-            setTimeout(() => {
-                // Show success message
-                showNotification('Հաղորդագրությունը հաջողությամբ ուղարկվեց!', 'success');
-                
-                // Reset form
-                form.reset();
-                
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-    }
-}
 
 // FAQ functionality
 function initFAQ() {
@@ -82,7 +43,7 @@ function initContactAnimations() {
     }, observerOptions);
 
     // Add fade-in class to elements that should animate
-    const animatedElements = document.querySelectorAll('.contact-card, .faq-item, .contact-form');
+    const animatedElements = document.querySelectorAll('.contact-card, .faq-item');
     animatedElements.forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);

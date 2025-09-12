@@ -1779,370 +1779,311 @@ body {
     }
 }
 
-/* Modal Styles */
-.modal-overlay {
+/* Live Chat Widget */
+.live-chat-widget {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 10000;
+    bottom: 50px;
+    right: 25px;
+    z-index: 1000;
+    font-family: 'Inter', sans-serif;
+}
+
+.chat-toggle {
+    width: 55px;
+    height: 55px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-.modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-content {
-    background: var(--dark-card);
-    border-radius: 20px;
-    max-width: 600px;
-    width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    border: 1px solid rgba(0, 212, 255, 0.3);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    transform: scale(0.8) translateY(50px);
+    cursor: pointer;
+    box-shadow: var(--shadow-glow);
     transition: all 0.3s ease;
     position: relative;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    animation: sparkle 3s ease-in-out infinite;
 }
 
-.modal-overlay.active .modal-content {
-    transform: scale(1) translateY(0);
+.chat-toggle:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 35px rgba(0, 212, 255, 0.6);
+    animation: sparkleHover 1s ease-in-out infinite;
 }
 
-.modal-header {
-    padding: 2rem 2rem 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.chat-badge {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 600;
+    animation: pulse 2s infinite;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
 }
 
-.modal-title {
-    font-size: 1.8rem;
-    font-weight: 700;
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        box-shadow: var(--shadow-glow);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0, 212, 255, 0.4), 0 0 50px rgba(0, 212, 255, 0.2);
+    }
+}
+
+@keyframes sparkleHover {
+    0%, 100% {
+        box-shadow: 0 0 35px rgba(0, 212, 255, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 45px rgba(0, 212, 255, 0.8), 0 0 70px rgba(0, 212, 255, 0.4);
+    }
+}
+
+.chat-menu {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 280px;
+    background: var(--dark-card);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px) scale(0.95);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    backdrop-filter: blur(20px);
+}
+
+.chat-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.chat-menu-header {
+    padding: 1.2rem 1.2rem 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-menu-header h4 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
     margin: 0;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.modal-close {
+.chat-close {
     background: none;
     border: none;
-    color: var(--text-secondary);
-    font-size: 1.5rem;
+    color: var(--text-muted);
     cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 50%;
+    padding: 0.4rem;
+    border-radius: 8px;
     transition: all 0.3s ease;
-    width: 40px;
-    height: 40px;
+    font-size: 0.9rem;
+    width: 28px;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.modal-close:hover {
+.chat-close:hover {
     background: rgba(255, 255, 255, 0.1);
-    color: var(--primary-color);
+    color: var(--text-primary);
     transform: rotate(90deg);
 }
 
-.modal-body {
-    padding: 1rem 2rem 2rem;
+.chat-options {
+    padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
 }
 
-.modal-subtitle {
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
-    text-align: center;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-/* Bitrix Form Customization - Enhanced */
-.bitrix-form-wrapper {
+.chat-option {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid transparent;
     position: relative;
+    overflow: hidden;
 }
 
-/* Force override all Bitrix form styles with maximum specificity */
-.bitrix-form-wrapper .b24-form,
-.bitrix-form-wrapper form,
-.bitrix-form-wrapper .b24-form-container,
-.bitrix-form-wrapper .b24-form-wrapper {
-    background: transparent !important;
-    border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-shadow: none !important;
+.chat-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
 }
 
-/* Override all input fields */
-.bitrix-form-wrapper input[type="text"],
-.bitrix-form-wrapper input[type="email"],
-.bitrix-form-wrapper input[type="tel"],
-.bitrix-form-wrapper input[type="phone"],
-.bitrix-form-wrapper textarea,
-.bitrix-form-wrapper .b24-form-control,
-.bitrix-form-wrapper .b24-form-input,
-.bitrix-form-wrapper .b24-form-textarea,
-.bitrix-form-wrapper .b24-form-field input,
-.bitrix-form-wrapper .b24-form-field textarea {
-    background: var(--dark-surface) !important;
-    border: 2px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 8px !important;
-    color: var(--text-primary) !important;
-    padding: 1rem !important;
-    font-size: 1rem !important;
-    font-family: 'Inter', sans-serif !important;
-    transition: all 0.3s ease !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    margin-bottom: 1rem !important;
+.chat-option:hover::before {
+    left: 100%;
 }
 
-.bitrix-form-wrapper input:focus,
-.bitrix-form-wrapper textarea:focus,
-.bitrix-form-wrapper .b24-form-control:focus,
-.bitrix-form-wrapper .b24-form-input:focus,
-.bitrix-form-wrapper .b24-form-textarea:focus,
-.bitrix-form-wrapper .b24-form-field input:focus,
-.bitrix-form-wrapper .b24-form-field textarea:focus {
-    outline: none !important;
-    border-color: var(--primary-color) !important;
-    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1) !important;
+.chat-option:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateX(8px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-.bitrix-form-wrapper input::placeholder,
-.bitrix-form-wrapper textarea::placeholder,
-.bitrix-form-wrapper .b24-form-control::placeholder,
-.bitrix-form-wrapper .b24-form-input::placeholder,
-.bitrix-form-wrapper .b24-form-textarea::placeholder {
-    color: var(--text-muted) !important;
+.chat-option-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.8rem;
+    font-size: 1.1rem;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Override all labels */
-.bitrix-form-wrapper label,
-.bitrix-form-wrapper .b24-form-label,
-.bitrix-form-wrapper .b24-form-field label,
-.bitrix-form-wrapper .b24-form-title {
-    color: var(--text-primary) !important;
-    font-weight: 600 !important;
-    margin-bottom: 0.5rem !important;
-    display: block !important;
-    font-family: 'Inter', sans-serif !important;
-    font-size: 1rem !important;
+.chat-option:hover .chat-option-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Override all buttons */
-.bitrix-form-wrapper button,
-.bitrix-form-wrapper input[type="submit"],
-.bitrix-form-wrapper .b24-form-btn,
-.bitrix-form-wrapper .b24-form-submit,
-.bitrix-form-wrapper .b24-form-button {
-    background: var(--gradient-primary) !important;
-    border: none !important;
-    border-radius: 50px !important;
-    color: white !important;
-    padding: 1rem 2rem !important;
-    font-weight: 600 !important;
-    font-size: 1rem !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    font-family: 'Inter', sans-serif !important;
-    box-shadow: var(--shadow-glow) !important;
-    width: 100% !important;
-    margin-top: 1rem !important;
+.chat-option.whatsapp .chat-option-icon {
+    background: linear-gradient(135deg, #25d366, #128c7e);
 }
 
-.bitrix-form-wrapper button:hover,
-.bitrix-form-wrapper input[type="submit"]:hover,
-.bitrix-form-wrapper .b24-form-btn:hover,
-.bitrix-form-wrapper .b24-form-submit:hover,
-.bitrix-form-wrapper .b24-form-button:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4) !important;
+.chat-option.telegram .chat-option-icon {
+    background: linear-gradient(135deg, #0088cc, #005f8c);
 }
 
-.bitrix-form-wrapper button:active,
-.bitrix-form-wrapper input[type="submit"]:active,
-.bitrix-form-wrapper .b24-form-btn:active,
-.bitrix-form-wrapper .b24-form-submit:active,
-.bitrix-form-wrapper .b24-form-button:active {
-    transform: translateY(-1px) !important;
+.chat-option.instagram .chat-option-icon {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
 
-/* Override form groups and rows */
-.bitrix-form-wrapper .b24-form-group,
-.bitrix-form-wrapper .b24-form-field,
-.bitrix-form-wrapper .b24-form-row {
-    margin-bottom: 1.5rem !important;
-    display: block !important;
+.chat-option.facebook .chat-option-icon {
+    background: linear-gradient(135deg, #1877f2, #0d5bb8);
 }
 
-.bitrix-form-wrapper .b24-form-row {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 1.5rem !important;
+.chat-option.phone .chat-option-icon {
+    background: linear-gradient(135deg, var(--accent-color), #3a9b96);
 }
 
-/* Override textarea specifically */
-.bitrix-form-wrapper textarea,
-.bitrix-form-wrapper .b24-form-textarea {
-    min-height: 120px !important;
-    resize: vertical !important;
+.chat-option-content h5 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0 0 0.2rem 0;
+    color: var(--text-primary);
 }
 
-/* Override form title and description */
-.bitrix-form-wrapper .b24-form-title,
-.bitrix-form-wrapper .b24-form-description,
-.bitrix-form-wrapper h1,
-.bitrix-form-wrapper h2,
-.bitrix-form-wrapper h3,
-.bitrix-form-wrapper p {
-    color: var(--text-primary) !important;
-    font-family: 'Inter', sans-serif !important;
+.chat-option-content p {
+    font-size: 0.75rem;
+    margin: 0;
+    color: var(--text-muted);
+    opacity: 0.8;
 }
 
-.bitrix-form-wrapper .b24-form-description {
-    color: var(--text-secondary) !important;
-    margin-bottom: 2rem !important;
-}
-
-/* Hide Bitrix branding */
-.bitrix-form-wrapper .b24-form-footer,
-.bitrix-form-wrapper .b24-form-powered,
-.bitrix-form-wrapper .b24-form-abuse {
-    display: none !important;
-}
-
-/* Maximum specificity override for Bitrix forms */
-body .bitrix-form-wrapper form,
-body .bitrix-form-wrapper .b24-form,
-body .bitrix-form-wrapper .b24-form-container {
-    background: transparent !important;
-    border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-}
-
-body .bitrix-form-wrapper input,
-body .bitrix-form-wrapper textarea,
-body .bitrix-form-wrapper select {
-    background: var(--dark-surface) !important;
-    border: 2px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 8px !important;
-    color: var(--text-primary) !important;
-    padding: 1rem !important;
-    font-size: 1rem !important;
-    font-family: 'Inter', sans-serif !important;
-    transition: all 0.3s ease !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    margin-bottom: 1rem !important;
-}
-
-body .bitrix-form-wrapper input:focus,
-body .bitrix-form-wrapper textarea:focus {
-    outline: none !important;
-    border-color: var(--primary-color) !important;
-    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1) !important;
-}
-
-body .bitrix-form-wrapper label {
-    color: var(--text-primary) !important;
-    font-weight: 600 !important;
-    margin-bottom: 0.5rem !important;
-    display: block !important;
-    font-family: 'Inter', sans-serif !important;
-    font-size: 1rem !important;
-}
-
-body .bitrix-form-wrapper button,
-body .bitrix-form-wrapper input[type="submit"] {
-    background: var(--gradient-primary) !important;
-    border: none !important;
-    border-radius: 50px !important;
-    color: white !important;
-    padding: 1rem 2rem !important;
-    font-weight: 600 !important;
-    font-size: 1rem !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    font-family: 'Inter', sans-serif !important;
-    box-shadow: var(--shadow-glow) !important;
-    width: 100% !important;
-    margin-top: 1rem !important;
-}
-
-body .bitrix-form-wrapper button:hover,
-body .bitrix-form-wrapper input[type="submit"]:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4) !important;
-}
-
-/* Additional override for any remaining Bitrix elements */
-.bitrix-form-wrapper * {
-    box-sizing: border-box !important;
-}
-
-.bitrix-form-wrapper .b24-form-wrapper,
-.bitrix-form-wrapper .b24-form-container,
-.bitrix-form-wrapper .b24-form-content {
-    background: transparent !important;
-    border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-/* Modal responsive */
+/* Responsive Design for Chat Widget */
 @media (max-width: 768px) {
-    .modal-content {
-        width: 95%;
-        margin: 1rem;
+    .live-chat-widget {
+        bottom: 40px;
+        right: 20px;
     }
     
-    .modal-header {
-        padding: 1.5rem 1.5rem 1rem;
+    .chat-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
     }
     
-    .modal-body {
-        padding: 1rem 1.5rem 1.5rem;
+    .chat-menu {
+        width: 260px;
+        bottom: 60px;
     }
     
-    .modal-title {
-        font-size: 1.5rem;
+    .chat-option {
+        padding: 0.7rem;
     }
     
-    .bitrix-form-wrapper .b24-form-row {
-        grid-template-columns: 1fr !important;
-        gap: 1rem !important;
+    .chat-option-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .modal-content {
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-        max-height: 100vh;
+    .live-chat-widget {
+        bottom: 30px;
+        right: 15px;
     }
     
-    .modal-header {
-        padding: 1rem;
+    .chat-toggle {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
     }
     
-    .modal-body {
-        padding: 1rem;
+    .chat-menu {
+        width: 240px;
+        bottom: 55px;
+        right: -5px;
+    }
+    
+    .chat-options {
+        padding: 0.6rem;
+    }
+    
+    .chat-option {
+        padding: 0.6rem;
+    }
+    
+    .chat-option-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+    
+    .chat-option-content h5 {
+        font-size: 0.85rem;
+    }
+    
+    .chat-option-content p {
+        font-size: 0.7rem;
     }
 }
