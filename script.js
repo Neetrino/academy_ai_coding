@@ -1,15 +1,16 @@
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all functionality
-    initSmoothScrolling();
-    initScrollAnimations();
-    initNavbarEffects();
-    initMobileMenu();
-    initParticleAnimation();
-    initCodeAnimation();
-    initModuleCards();
-    initCounters();
-    initTypingEffect();
+    // Ждем загрузки компонентов
+    setTimeout(() => {
+        // Initialize all functionality
+        initScrollAnimations();
+        initNavbarEffects();
+        initParticleAnimation();
+        initCodeAnimation();
+        initModuleCards();
+        initCounters();
+        initTypingEffect();
+    }, 100);
 });
 
 // Smooth scrolling for navigation links
@@ -83,27 +84,7 @@ function initNavbarEffects() {
     });
 }
 
-// Mobile menu toggle
-function initMobileMenu() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-    }
-}
+// Mobile menu toggle (удалено - теперь в components.js)
 
 // Enhanced particle animation
 function initParticleAnimation() {
