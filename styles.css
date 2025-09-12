@@ -159,6 +159,13 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+    color: var(--primary-color);
+    transform: scale(1.05);
 }
 
 .nav-logo i {
@@ -676,6 +683,13 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-logo:hover {
+    color: var(--primary-color);
+    transform: scale(1.05);
 }
 
 .footer-logo i {

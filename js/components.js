@@ -17,10 +17,10 @@ class ComponentLoader {
         const headerHTML = `
             <nav class="navbar">
                 <div class="nav-container">
-                    <div class="nav-logo">
+                    <a href="index.html" class="nav-logo">
                         <i class="fas fa-brain"></i>
                         <span>AI Coding</span>
-                    </div>
+                    </a>
                     <div class="nav-menu">
                         <a href="index.html" class="nav-link" data-page="home">Գլխավոր</a>
                         <a href="module1.html" class="nav-link" data-page="module1">AI Explorer</a>
@@ -42,10 +42,10 @@ class ComponentLoader {
             <footer class="footer">
                 <div class="container">
                     <div class="footer-content">
-                        <div class="footer-logo">
+                        <a href="index.html" class="footer-logo">
                             <i class="fas fa-brain"></i>
                             <span>AI Coding</span>
-                        </div>
+                        </a>
                         <div class="footer-links">
                             <a href="index.html">Գլխավոր</a>
                             <a href="module1.html">AI Explorer</a>
