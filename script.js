@@ -356,30 +356,6 @@ style.textContent = `
         }
     }
     
-    .nav-menu.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(26, 26, 26, 0.98);
-        backdrop-filter: blur(20px);
-        padding: 2rem;
-        border-top: 1px solid rgba(0, 212, 255, 0.2);
-    }
-    
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
 `;
 document.head.appendChild(style);
 

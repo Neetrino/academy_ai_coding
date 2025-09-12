@@ -28,13 +28,58 @@ class ComponentLoader {
                         <a href="module3.html" class="nav-link" data-page="module3">AI Product Engineer</a>
                         <a href="contact.html" class="nav-link" data-page="contact">Կապ</a>
                     </div>
-                    <div class="hamburger">
+                    <div class="hamburger" id="mobile-menu-toggle">
                         <span></span>
                         <span></span>
                         <span></span>
                     </div>
                 </div>
             </nav>
+            
+            <!-- Mobile Menu Overlay -->
+            <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+                <div class="mobile-menu-content">
+                    <div class="mobile-menu-header">
+                        <div class="mobile-menu-logo">
+                            <i class="fas fa-brain"></i>
+                            <span>AI Coding</span>
+                        </div>
+                        <button class="mobile-menu-close" id="mobile-menu-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <nav class="mobile-menu-nav">
+                        <a href="index.html" class="mobile-menu-link" data-page="home">
+                            <i class="fas fa-home"></i>
+                            <span>Գլխավոր</span>
+                        </a>
+                        <a href="module1.html" class="mobile-menu-link" data-page="module1">
+                            <i class="fas fa-search"></i>
+                            <span>AI Explorer</span>
+                        </a>
+                        <a href="module2.html" class="mobile-menu-link" data-page="module2">
+                            <i class="fas fa-code"></i>
+                            <span>AI Developer</span>
+                        </a>
+                        <a href="module3.html" class="mobile-menu-link" data-page="module3">
+                            <i class="fas fa-rocket"></i>
+                            <span>AI Product Engineer</span>
+                        </a>
+                        <a href="contact.html" class="mobile-menu-link" data-page="contact">
+                            <i class="fas fa-envelope"></i>
+                            <span>Կապ</span>
+                        </a>
+                    </nav>
+                    
+                    <div class="mobile-menu-footer">
+                        <a href="https://wa.me/37444343000?text=Բարև%21%20Ցանկանում%20եմ%20գրանցվել%20AI%20Coding%20դասընթացի%20համար%20և%20սկսել%20սովորել%20ծրագրավորում%20AI-ի%20օգնությամբ%20🚀" target="_blank" class="mobile-menu-cta">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Սկսել հիմա</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         `;
 
         // Footer компонент
@@ -152,22 +197,85 @@ class ComponentLoader {
      * Инициализирует мобильное меню
      */
     initMobileMenu() {
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+        const hamburger = document.getElementById('mobile-menu-toggle');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
 
-        if (hamburger && navMenu) {
+        if (hamburger && mobileMenuOverlay) {
+            // Открытие меню
             hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
+                this.openMobileMenu();
             });
 
-            // Закрываем меню при клике на ссылку
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
+            // Закрытие меню
+            mobileMenuClose.addEventListener('click', () => {
+                this.closeMobileMenu();
+            });
+
+            // Закрытие при клике на оверлей
+            mobileMenuOverlay.addEventListener('click', (e) => {
+                if (e.target === mobileMenuOverlay) {
+                    this.closeMobileMenu();
+                }
+            });
+
+            // Закрытие при клике на ссылку
+            mobileMenuLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
+                    this.closeMobileMenu();
                 });
+            });
+
+            // Закрытие при нажатии Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) {
+                    this.closeMobileMenu();
+                }
+            });
+        }
+    }
+
+    /**
+     * Открывает мобильное меню
+     */
+    openMobileMenu() {
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const hamburger = document.getElementById('mobile-menu-toggle');
+        
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.classList.add('active');
+            hamburger.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Анимация появления ссылок
+            const links = document.querySelectorAll('.mobile-menu-link');
+            links.forEach((link, index) => {
+                setTimeout(() => {
+                    link.style.opacity = '1';
+                    link.style.transform = 'translateX(0)';
+                }, index * 100);
+            });
+        }
+    }
+
+    /**
+     * Закрывает мобильное меню
+     */
+    closeMobileMenu() {
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const hamburger = document.getElementById('mobile-menu-toggle');
+        
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = '';
+            
+            // Сброс анимации ссылок
+            const links = document.querySelectorAll('.mobile-menu-link');
+            links.forEach(link => {
+                link.style.opacity = '0';
+                link.style.transform = 'translateX(30px)';
             });
         }
     }
