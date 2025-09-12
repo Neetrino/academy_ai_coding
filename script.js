@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initModuleCards();
         initCounters();
         initTypingEffect();
-        initLiveChatComponent();
+        initWhatsAppButtons();
     }, 100);
 });
 
@@ -330,83 +330,67 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Live Chat Widget functionality
-function initLiveChat() {
-    const chatToggle = document.getElementById('chatToggle');
-    const chatMenu = document.getElementById('chatMenu');
-    const chatClose = document.getElementById('chatClose');
-    
-    if (!chatToggle || !chatMenu || !chatClose) return;
-    
-    // Toggle chat menu
-    chatToggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        chatMenu.classList.toggle('active');
-        
-        // Add click animation to toggle button
-        chatToggle.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            chatToggle.style.transform = '';
-        }, 150);
-    });
-    
-    // Close chat menu
-    chatClose.addEventListener('click', function(e) {
-        e.preventDefault();
-        chatMenu.classList.remove('active');
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!chatToggle.contains(e.target) && !chatMenu.contains(e.target)) {
-            chatMenu.classList.remove('active');
-        }
-    });
-    
-    // Close menu on escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            chatMenu.classList.remove('active');
-        }
-    });
-    
-    // Add hover effects to chat options
-    const chatOptions = document.querySelectorAll('.chat-option');
-    chatOptions.forEach(option => {
-        option.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateX(8px)';
-        });
-        
-        option.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateX(0)';
-        });
-    });
-    
-    // Add click tracking for analytics (optional)
-    chatOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            const platform = this.classList[1]; // whatsapp, telegram, etc.
-            console.log(`📱 Chat option clicked: ${platform}`);
-            
-            // You can add analytics tracking here
-            // gtag('event', 'chat_option_click', {
-            //     'platform': platform
-            // });
-        });
-    });
-}
 
-// Initialize Live Chat Component
-function initLiveChatComponent() {
-    if (window.LiveChatComponent) {
-        window.liveChatInstance = new window.LiveChatComponent();
-        console.log('💬 Live Chat компонент инициализирован');
-    } else {
-        console.warn('⚠️ LiveChatComponent не найден');
-    }
+// WhatsApp Button Enhancement
+function initWhatsAppButtons() {
+    const whatsappButtons = document.querySelectorAll('.whatsapp-btn');
+    
+    whatsappButtons.forEach(button => {
+        // Add click tracking
+        button.addEventListener('click', function(e) {
+            // Track the click event
+            console.log('📱 WhatsApp button clicked');
+            
+            // Add visual feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+            
+            // Check if it's mobile device
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // For mobile, try to open WhatsApp app directly
+                const phoneNumber = '37444343000';
+                const message = encodeURIComponent('Բարև! Ցանկանում եմ գրանցվել AI Coding դասընթացի համար և սկսել սովորել ծրագրավորում AI-ի օգնությամբ 🚀');
+                
+                // Try WhatsApp app first, fallback to web
+                const whatsappUrl = `whatsapp://send?phone=${phoneNumber}&text=${message}`;
+                const webUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+                
+                // Create a temporary link to test if WhatsApp app is available
+                const tempLink = document.createElement('a');
+                tempLink.href = whatsappUrl;
+                tempLink.style.display = 'none';
+                document.body.appendChild(tempLink);
+                
+                // Try to open WhatsApp app
+                tempLink.click();
+                
+                // Fallback to web version after a short delay
+                setTimeout(() => {
+                    window.open(webUrl, '_blank');
+                }, 1000);
+                
+                document.body.removeChild(tempLink);
+            }
+        });
+        
+        // Add hover effects specific to WhatsApp
+        button.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px) scale(1.05)';
+            this.style.boxShadow = '0 15px 35px rgba(0, 212, 255, 0.4)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = '0 10px 30px rgba(0, 212, 255, 0.4)';
+        });
+    });
 }
 
 // Console log for debugging
 console.log('🚀 AI Coding Landing Page loaded successfully!');
 console.log('✨ All animations and interactions are ready!');
-console.log('💬 Live chat widget initialized!');
+console.log('📱 WhatsApp buttons enhanced for mobile optimization!');
