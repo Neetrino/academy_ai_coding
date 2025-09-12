@@ -25,7 +25,7 @@ class LiveChatComponent {
         const liveChatHTML = `
             <div class="live-chat-widget">
                 <div class="chat-toggle" id="chatToggle">
-                    <i class="fas fa-brain"></i>
+                    <i class="fas fa-comments"></i>
                 </div>
                 <div class="chat-label">Live Chat</div>
                 <div class="chat-menu" id="chatMenu">

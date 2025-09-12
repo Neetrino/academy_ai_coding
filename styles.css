@@ -1796,8 +1796,8 @@ body {
 /* Live Chat Widget */
 .live-chat-widget {
     position: fixed;
-    bottom: 70px;
-    left: 40px;
+    bottom: 90px;
+    right: 40px;
     z-index: 1000;
     font-family: 'Inter', sans-serif;
 }
@@ -1942,8 +1942,8 @@ body {
 
 .chat-menu {
     position: absolute;
-    bottom: 80px;
-    left: 0;
+    bottom: 100px;
+    right: 100px;
     width: auto;
     background: transparent;
     border-radius: 0;
@@ -2054,8 +2054,8 @@ body {
 /* Responsive Design for Chat Widget */
 @media (max-width: 768px) {
     .live-chat-widget {
-        bottom: 60px;
-        left: 25px;
+        bottom: 90px;
+        right: 15px;
     }
     
     .chat-toggle {
@@ -2070,8 +2070,8 @@ body {
     }
     
     .chat-menu {
-        bottom: 70px;
-        left: 0;
+        bottom: 100px;
+        right: 60px;
     }
     
     .chat-option {
@@ -2086,8 +2086,8 @@ body {
 
 @media (max-width: 480px) {
     .live-chat-widget {
-        bottom: 50px;
-        left: 20px;
+        bottom: 80px;
+        right: 10px;
     }
     
     .chat-toggle {
@@ -2102,8 +2102,8 @@ body {
     }
     
     .chat-menu {
-        bottom: 65px;
-        left: -5px;
+        bottom: 95px;
+        right: 55px;
     }
     
     .chat-options {
