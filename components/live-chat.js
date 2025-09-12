@@ -25,16 +25,11 @@ class LiveChatComponent {
         const liveChatHTML = `
             <div class="live-chat-widget">
                 <div class="chat-toggle" id="chatToggle">
-                    <i class="fas fa-comments"></i>
-                    <span class="chat-badge">1</span>
+                    <i class="fas fa-brain"></i>
+                    <span class="chat-badge">AI</span>
                 </div>
+                <div class="chat-label">Live Chat</div>
                 <div class="chat-menu" id="chatMenu">
-                    <div class="chat-menu-header">
-                        <h4>💬 Կապ</h4>
-                        <button class="chat-close" id="chatClose">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
                     <div class="chat-options">
                         <a href="https://wa.me/37444343000" target="_blank" class="chat-option whatsapp" title="WhatsApp">
                             <div class="chat-option-icon">
@@ -76,17 +71,10 @@ class LiveChatComponent {
     attachEventListeners() {
         const chatToggle = document.getElementById('chatToggle');
         const chatMenu = document.getElementById('chatMenu');
-        const chatClose = document.getElementById('chatClose');
 
         if (chatToggle) {
             chatToggle.addEventListener('click', () => {
                 this.toggleChat();
-            });
-        }
-
-        if (chatClose) {
-            chatClose.addEventListener('click', () => {
-                this.closeChat();
             });
         }
 
