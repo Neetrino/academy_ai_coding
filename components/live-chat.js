@@ -40,16 +40,6 @@ class LiveChatComponent {
                                 <i class="fab fa-telegram"></i>
                             </div>
                         </a>
-                        <a href="https://instagram.com/neetrino_it_academ" target="_blank" class="chat-option instagram" title="Instagram">
-                            <div class="chat-option-icon">
-                                <i class="fab fa-instagram"></i>
-                            </div>
-                        </a>
-                        <a href="https://www.facebook.com/share/14HMevrDCXQ/" target="_blank" class="chat-option facebook" title="Facebook">
-                            <div class="chat-option-icon">
-                                <i class="fab fa-facebook"></i>
-                            </div>
-                        </a>
                         <a href="tel:+37444343000" class="chat-option phone" title="Զանգ">
                             <div class="chat-option-icon">
                                 <i class="fas fa-phone"></i>
@@ -72,8 +62,25 @@ class LiveChatComponent {
         const chatMenu = document.getElementById('chatMenu');
 
         if (chatToggle) {
+            // Обычный клик
             chatToggle.addEventListener('click', () => {
                 this.toggleChat();
+            });
+
+            // Долгое нажатие для мобильных устройств
+            let longPressTimer;
+            chatToggle.addEventListener('touchstart', (e) => {
+                longPressTimer = setTimeout(() => {
+                    this.showMobileMenu();
+                }, 500);
+            });
+
+            chatToggle.addEventListener('touchend', () => {
+                clearTimeout(longPressTimer);
+            });
+
+            chatToggle.addEventListener('touchmove', () => {
+                clearTimeout(longPressTimer);
             });
         }
 
@@ -93,14 +100,145 @@ class LiveChatComponent {
     }
 
     /**
-     * Переключает состояние чата
+     * Переключает состояние чата или открывает WhatsApp
      */
     toggleChat() {
+        // Проверяем, если это мобильное устройство, сразу открываем WhatsApp
+        if (this.isMobileDevice()) {
+            window.open('https://wa.me/37444343000', '_blank');
+            return;
+        }
+        
+        // На десктопе показываем меню
         if (this.isOpen) {
             this.closeChat();
         } else {
             this.openChat();
         }
+    }
+
+    /**
+     * Проверяет, является ли устройство мобильным
+     */
+    isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+               window.innerWidth <= 768;
+    }
+
+    /**
+     * Показывает мобильное меню с выбором способа связи
+     */
+    showMobileMenu() {
+        // Создаем простое мобильное меню
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'mobile-chat-menu';
+        mobileMenu.innerHTML = `
+            <div class="mobile-menu-content">
+                <h3>Выберите способ связи:</h3>
+                <div class="mobile-options">
+                    <button onclick="window.open('https://wa.me/37444343000', '_blank')" class="mobile-option whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </button>
+                    <button onclick="window.open('https://t.me/Neetrino', '_blank')" class="mobile-option telegram">
+                        <i class="fab fa-telegram"></i>
+                        <span>Telegram</span>
+                    </button>
+                    <button onclick="window.location.href='tel:+37444343000'" class="mobile-option phone">
+                        <i class="fas fa-phone"></i>
+                        <span>Звонок</span>
+                    </button>
+                </div>
+                <button class="close-mobile-menu" onclick="this.parentElement.parentElement.remove()">Закрыть</button>
+            </div>
+        `;
+
+        // Добавляем стили для мобильного меню
+        const style = document.createElement('style');
+        style.textContent = `
+            .mobile-chat-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            }
+            .mobile-menu-content {
+                background: var(--dark-card);
+                border-radius: 16px;
+                padding: 2rem;
+                text-align: center;
+                max-width: 300px;
+                width: 100%;
+                border: 1px solid var(--primary-color);
+            }
+            .mobile-menu-content h3 {
+                color: var(--text-primary);
+                margin-bottom: 1.5rem;
+                font-size: 1.2rem;
+            }
+            .mobile-options {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            .mobile-option {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem;
+                border: none;
+                border-radius: 12px;
+                background: var(--dark-surface);
+                color: var(--text-primary);
+                font-size: 1rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-align: left;
+            }
+            .mobile-option:hover {
+                background: var(--primary-color);
+                transform: translateY(-2px);
+            }
+            .mobile-option i {
+                font-size: 1.5rem;
+                width: 30px;
+            }
+            .mobile-option.whatsapp i { color: #25d366; }
+            .mobile-option.telegram i { color: #0088cc; }
+            .mobile-option.phone i { color: var(--accent-color); }
+            .close-mobile-menu {
+                background: transparent;
+                border: 1px solid var(--text-muted);
+                color: var(--text-secondary);
+                padding: 0.75rem 1.5rem;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            .close-mobile-menu:hover {
+                border-color: var(--primary-color);
+                color: var(--primary-color);
+            }
+        `;
+        document.head.appendChild(style);
+
+        document.body.appendChild(mobileMenu);
+
+        // Закрываем меню при клике вне его
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.remove();
+                style.remove();
+            }
+        });
     }
 
     /**
