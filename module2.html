@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Developer - Մոդուլ 2 | AI Coding</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>AI Coding</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Գլխավոր</a>
+                <a href="index.html#modules" class="nav-link">Մոդուլներ</a>
+                <a href="module1.html" class="nav-link">AI Explorer</a>
+                <a href="module2.html" class="nav-link active">AI Developer</a>
+                <a href="module3.html" class="nav-link">AI Product Engineer</a>
+                <a href="index.html#contact" class="nav-link">Կապ</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Module Hero Section -->
+    <section class="module-hero">
+        <div class="container">
+            <div class="module-hero-content">
+                <div class="module-badge">
+                    <i class="fas fa-code"></i>
+                    <span>Մոդուլ 2</span>
+                </div>
+                <h1 class="module-hero-title">
+                    <span class="gradient-text">AI Developer</span>
+                </h1>
+                <p class="module-hero-subtitle">
+                    Անցում կատարել «կախարդանքից» դեպի պրոֆեսիոնալ աշխատանք կոդի հետ — 
+                    կարողանալ օգտագործել AI-ը որպես օգնական, սակայն միաժամանակ վերահսկել ամբողջ գործընթացը
+                </p>
+                <div class="module-stats">
+                    <div class="stat">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Ամիս</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Դաս</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Շաբաթ</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1.5-2</span>
+                        <span class="stat-label">Ժամ/դաս</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module Overview -->
+    <section class="module-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>Մոդուլի նպատակը</h2>
+                    <p>
+                        Անցում կատարել «կախարդանքից» դեպի պրոֆեսիոնալ աշխատանք կոդի հետ — 
+                        կարողանալ օգտագործել AI-ը որպես օգնական, սակայն միաժամանակ վերահսկել ամբողջ գործընթացը, 
+                        գտնել և շտկել սխալները, հասկանալ ճարտարապետությունը, աշխատել թիմերի և տարբեր վարկածների հետ։
+                    </p>
+                    <div class="focus-point">
+                        <h3>Ֆոկուս</h3>
+                        <p>Հավասարակշռված օգտագործում AI-ի և դասական գործիքների։</p>
+                    </div>
+                </div>
+                <div class="overview-visual">
+                    <div class="tech-stack-showcase">
+                        <div class="tech-category">
+                            <h4>Frontend</h4>
+                            <div class="tech-items">
+                                <div class="tech-item">React</div>
+                                <div class="tech-item">Next.js</div>
+                                <div class="tech-item">TypeScript</div>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h4>Backend</h4>
+                            <div class="tech-items">
+                                <div class="tech-item">Node.js</div>
+                                <div class="tech-item">Express</div>
+                                <div class="tech-item">API</div>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h4>Database</h4>
+                            <div class="tech-items">
+                                <div class="tech-item">Firebase</div>
+                                <div class="tech-item">Supabase</div>
+                                <div class="tech-item">MongoDB</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section class="curriculum">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Դասընթացի ծրագիր</h2>
+                <p class="section-subtitle">
+                    Մանրամասն ծրագիր 12 դասի համար
+                </p>
+            </div>
+
+            <div class="curriculum-timeline">
+                <!-- Week 1 -->
+                <div class="week-section">
+                    <div class="week-header">
+                        <h3>Շաբաթ 1: Ճարտարապետություն և գործիքներ</h3>
+                        <span class="week-number">1</span>
+                    </div>
+                    <div class="lessons-grid">
+                        <div class="lesson-card">
+                            <div class="lesson-number">1</div>
+                            <h4>Վեբ հավելվածների ճարտարապետություն</h4>
+                            <p>Front, back, ԲԴ, API</p>
+                            <ul>
+                                <li>Client-Server մոդել</li>
+                                <li>REST API հասկացություններ</li>
+                                <li>Database կառուցվածք</li>
+                            </ul>
+                        </div>
+                        <div class="lesson-card">
+                            <div class="lesson-number">2</div>
+                            <h4>Ստեկերի ըմբռնում</h4>
+                            <p>Next.js, React, Node.js, Firebase, Supabase</p>
+                            <ul>
+                                <li>React հիմունքներ</li>
+                                <li>Next.js առավելություններ</li>
+                                <li>Node.js ecosystem</li>
+                            </ul>
+                        </div>
+                        <div class="lesson-card">
+                            <div class="lesson-number">3</div>
+                            <h4>Աշխատանք տերմինալի հետ</h4>
+                            <p>Command line interface</p>
+                            <ul>
+                                <li>Terminal հիմունքներ</li>
+                                <li>npm/yarn package managers</li>
+                                <li>Environment setup</li>
+                            </ul>
+                        </div>
+                        <div class="lesson-card">
+                            <div class="lesson-number">4</div>
+                            <h4>Git և GitHub</h4>
+                            <p>Տարբերակներ, ճյուղեր, commit-ներ, pull request-ներ</p>
+                            <ul>
+                                <li>Git հիմունքներ</li>
+                                <li>Branching strategy</li>
+                                <li>Pull requests</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 2 -->
+                <div class="week-section">
+                    <div class="week-header">
+                        <h3>Շաբաթ 2: Զարգացման գործիքներ</h3>
+                        <span class="week-number">2</span>
+                    </div>
+                    <div class="lessons-grid">
+                        <div class="lesson-card">
+                            <div class="lesson-number">5</div>
+                            <h4>Վրիպազերծում</h4>
+                            <p>Սխալների որոնում, ընթերցում, լոգավորում</p>
+                            <ul>
+                                <li>Browser DevTools</li>
+                                <li>Console debugging</li>
+                                <li>Error handling</li>
+                            </ul>
+                        </div>
+                        <div class="lesson-card">
+                            <div class="lesson-number">6</div>
+                            <h4>Թեստավորման գործիքներ</h4>
+                            <p>Jest, ESLint, Prettier</p>
+                            <ul>
+                                <li>Unit testing</li>
+                                <li>Code linting</li>
+                                <li>Code formatting</li>
+                            </ul>
+                        </div>
+                        <div class="lesson-card">
+                            <div class="lesson-number">7</div>
+                            <h4>API ինտեգրացիաներ</h4>
+                            <p>Արտաքին ծառայությունների ինտեգրում</p>
+                            <ul>
+                                <li>HTTP requests</li>
+                                <li>API documentation</li>
+                                <li>Error handling</li>
+                            </ul>
+                        </div>
+                        <div class="lesson-card">
+                            <div class="lesson-number">8</div>
+                            <h4>Տվյալների բազաներ</h4>
+                            <p>Կառուցվածք, մուտք, միացում</p>
+                            <ul>
+                                <li>Database design</li>
+                                <li>CRUD operations</li>
+                                <li>Data relationships</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 3 -->
+                <div class="week-section">
+                    <div class="week-header">
+                        <h3>Շաբաթ 3: Ավանդական նախագիծ</h3>
+                        <span class="week-number">3</span>
+                    </div>
+                    <div class="lessons-grid">
+                        <div class="lesson-card">
+                            <div class="lesson-number">9</div>
+                            <h4>Օգտատերերի հեղինակացում</h4>
+                            <p>Դերի համակարգի հետ աշխատանք</p>
+                            <ul>
+                                <li>Authentication systems</li>
+                                <li>Authorization levels</li>
+                                <li>Security best practices</li>
+                            </ul>
+                        </div>
+                        <div class="lesson-card">
+                            <div class="lesson-number">10</div>
+                            <h4>Բլոգի ստեղծում</h4>
+                            <p>Գործնական նախագիծ</p>
+                            <ul>
+                                <li>Content management</li>
+                                <li>User interface</li>
+                                <li>Database integration</li>
+                            </ul>
+                        </div>
+                        <div class="lesson-card">
+                            <div class="lesson-number">11</div>
+                            <h4>Ինտերնետ-խանութի ստեղծում</h4>
+                            <p>E-commerce հավելված</p>
+                            <ul>
+                                <li>Product catalog</li>
+                                <li>Shopping cart</li>
+                                <li>Order management</li>
+                            </ul>
+                        </div>
+                        <div class="lesson-card">
+                            <div class="lesson-number">12</div>
+                            <h4>Նախագծի պաշտպանություն</h4>
+                            <p>Ամբողջական կայք ԲԴ-ով և API-ով</p>
+                            <ul>
+                                <li>Project deployment</li>
+                                <li>Performance optimization</li>
+                                <li>Code review</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Outcomes -->
+    <section class="learning-outcomes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Ուսուցման արդյունքներ</h2>
+                <p class="section-subtitle">
+                    Ինչ կսովորեք այս մոդուլում
+                </p>
+            </div>
+            
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <div class="outcome-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Պրոֆեսիոնալ գործիքներ</h3>
+                    <p>Կարողանում է մշակել իրական պրոդուկտներ AI-ի օգնությամբ, գտնել ու շտկել սխալները</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-icon">
+                        <i class="fab fa-git-alt"></i>
+                    </div>
+                    <h3>Git և թիմային աշխատանք</h3>
+                    <p>Աշխատել Git-ով և թիմով, ստեղծել կայուն նախագծեր</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Backend հմտություններ</h3>
+                    <p>Աշխատել տվյալների բազաների հետ, ստեղծել API-ներ</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <div class="outcome-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>Վրիպազերծում</h3>
+                    <p>Գտնել և շտկել սխալները, օպտիմիզացնել կոդը</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Project -->
+    <section class="final-project">
+        <div class="container">
+            <div class="project-showcase">
+                <div class="project-info">
+                    <h2>Վերջնական նախագիծ</h2>
+                    <h3>Խանութ / Բլոգ</h3>
+                    <p>
+                        Մոդուլի ավարտին յուրաքանչյուր ուսանող ստեղծում է ամբողջական կայք 
+                        տվյալների բազայով և API-ով՝ օրինակ բլոգ կամ ինտերնետ-խանութ:
+                    </p>
+                    <div class="project-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Full-stack հավելված</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Database integration</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>User authentication</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>API endpoints</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Responsive design</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Error handling</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-visual">
+                    <div class="project-preview">
+                        <div class="preview-header">
+                            <div class="preview-controls">
+                                <span class="control red"></span>
+                                <span class="control yellow"></span>
+                                <span class="control green"></span>
+                            </div>
+                            <span class="preview-title">my-ecommerce.com</span>
+                        </div>
+                        <div class="preview-content">
+                            <div class="preview-nav">
+                                <span>Home</span>
+                                <span>Products</span>
+                                <span>Cart</span>
+                                <span>Login</span>
+                            </div>
+                            <div class="preview-hero">
+                                <h4>Welcome to My Store</h4>
+                                <p>Full-stack e-commerce solution</p>
+                            </div>
+                            <div class="preview-grid">
+                                <div class="preview-item"></div>
+                                <div class="preview-item"></div>
+                                <div class="preview-item"></div>
+                                <div class="preview-item"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Պատրա՞ստ եք դառնալ պրոֆեսիոնալ AI Developer?</h2>
+                <p>Միացեք AI Developer մոդուլին և սովորեք ստեղծել ամբողջական հավելվածներ</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i>
+                        Գրանցվել մոդուլին
+                    </button>
+                    <a href="module3.html" class="btn btn-outline btn-large">
+                        <i class="fas fa-arrow-right"></i>
+                        Հաջորդ մոդուլ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-brain"></i>
+                    <span>AI Coding</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Գլխավոր</a>
+                    <a href="index.html#modules">Մոդուլներ</a>
+                    <a href="module1.html">AI Explorer</a>
+                    <a href="module2.html">AI Developer</a>
+                    <a href="module3.html">AI Product Engineer</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Coding. Բոլոր իրավունքները պաշտպանված են:</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
