@@ -2199,6 +2199,7 @@ body {
     transform: translateX(-50%);
     z-index: 1000;
     font-family: 'Inter', sans-serif;
+    display: none; /* Скрыто по умолчанию */
 }
 
 .center-btn {
@@ -2259,9 +2260,21 @@ body {
     letter-spacing: 0.5px;
 }
 
+/* Hide CTA WhatsApp button on mobile */
+@media (max-width: 768px) {
+    .cta-buttons .whatsapp-btn {
+        display: none !important;
+    }
+    
+    .cta-buttons {
+        justify-content: center;
+    }
+}
+
 /* Mobile Center Button */
 @media (max-width: 768px) {
     .center-cta-button {
+        display: block !important; /* Показать только на мобильных */
         bottom: 1.5rem;
         left: 50%;
         right: auto;
