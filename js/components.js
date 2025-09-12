@@ -23,9 +23,9 @@ class ComponentLoader {
                     </a>
                     <div class="nav-menu">
                         <a href="index.html" class="nav-link" data-page="home">Գլխավոր</a>
-                        <a href="module1.html" class="nav-link" data-page="module1">AI Explorer</a>
-                        <a href="module2.html" class="nav-link" data-page="module2">AI Developer</a>
-                        <a href="module3.html" class="nav-link" data-page="module3">AI Product Engineer</a>
+                        <a href="module1.html" class="nav-link" data-page="module1">I մոդուլ<br>AI Explorer</a>
+                        <a href="module2.html" class="nav-link" data-page="module2">II մոդուլ<br>AI Developer</a>
+                        <a href="module3.html" class="nav-link" data-page="module3">III մոդուլ<br>AI Product Engineer</a>
                         <a href="contact.html" class="nav-link" data-page="contact">Կապ</a>
                     </div>
                     <div class="hamburger" id="mobile-menu-toggle">
@@ -56,15 +56,15 @@ class ComponentLoader {
                         </a>
                         <a href="module1.html" class="mobile-menu-link" data-page="module1">
                             <i class="fas fa-search"></i>
-                            <span>AI Explorer</span>
+                            <span>I մոդուլ<br>AI Explorer</span>
                         </a>
                         <a href="module2.html" class="mobile-menu-link" data-page="module2">
                             <i class="fas fa-code"></i>
-                            <span>AI Developer</span>
+                            <span>II մոդուլ<br>AI Developer</span>
                         </a>
                         <a href="module3.html" class="mobile-menu-link" data-page="module3">
                             <i class="fas fa-rocket"></i>
-                            <span>AI Product Engineer</span>
+                            <span>III մոդուլ<br>AI Product Engineer</span>
                         </a>
                         <a href="contact.html" class="mobile-menu-link" data-page="contact">
                             <i class="fas fa-envelope"></i>
@@ -93,9 +93,9 @@ class ComponentLoader {
                         </a>
                         <div class="footer-links">
                             <a href="index.html">Գլխավոր</a>
-                            <a href="module1.html">AI Explorer</a>
-                            <a href="module2.html">AI Developer</a>
-                            <a href="module3.html">AI Product Engineer</a>
+                            <a href="module1.html">I մոդուլ<br>AI Explorer</a>
+                            <a href="module2.html">II մոդուլ<br>AI Developer</a>
+                            <a href="module3.html">III մոդուլ<br>AI Product Engineer</a>
                         </div>
                         <div class="footer-social">
                             <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>

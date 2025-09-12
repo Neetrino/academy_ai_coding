@@ -618,6 +618,15 @@ body {
     color: white;
 }
 
+.module-number {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .module-title {
     font-size: 1.5rem;
     font-weight: 700;
