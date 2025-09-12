@@ -27,7 +27,7 @@ class ComponentLoader {
                         <a href="module1.html" class="nav-link" data-page="module1">AI Explorer</a>
                         <a href="module2.html" class="nav-link" data-page="module2">AI Developer</a>
                         <a href="module3.html" class="nav-link" data-page="module3">AI Product Engineer</a>
-                        <a href="index.html#contact" class="nav-link" data-page="contact">Կապ</a>
+                        <a href="contact.html" class="nav-link" data-page="contact">Կապ</a>
                     </div>
                     <div class="hamburger">
                         <span></span>
