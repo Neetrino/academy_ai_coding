@@ -1869,20 +1869,34 @@ body {
     line-height: 1.6;
 }
 
-/* Bitrix Form Customization */
+/* Bitrix Form Customization - Enhanced */
 .bitrix-form-wrapper {
     position: relative;
 }
 
-/* Override Bitrix form styles */
-.bitrix-form-wrapper .b24-form {
+/* Force override all Bitrix form styles with maximum specificity */
+.bitrix-form-wrapper .b24-form,
+.bitrix-form-wrapper form,
+.bitrix-form-wrapper .b24-form-container,
+.bitrix-form-wrapper .b24-form-wrapper {
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
+    box-shadow: none !important;
 }
 
-.bitrix-form-wrapper .b24-form-control {
+/* Override all input fields */
+.bitrix-form-wrapper input[type="text"],
+.bitrix-form-wrapper input[type="email"],
+.bitrix-form-wrapper input[type="tel"],
+.bitrix-form-wrapper input[type="phone"],
+.bitrix-form-wrapper textarea,
+.bitrix-form-wrapper .b24-form-control,
+.bitrix-form-wrapper .b24-form-input,
+.bitrix-form-wrapper .b24-form-textarea,
+.bitrix-form-wrapper .b24-form-field input,
+.bitrix-form-wrapper .b24-form-field textarea {
     background: var(--dark-surface) !important;
     border: 2px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 8px !important;
@@ -1893,27 +1907,48 @@ body {
     transition: all 0.3s ease !important;
     width: 100% !important;
     box-sizing: border-box !important;
+    margin-bottom: 1rem !important;
 }
 
-.bitrix-form-wrapper .b24-form-control:focus {
+.bitrix-form-wrapper input:focus,
+.bitrix-form-wrapper textarea:focus,
+.bitrix-form-wrapper .b24-form-control:focus,
+.bitrix-form-wrapper .b24-form-input:focus,
+.bitrix-form-wrapper .b24-form-textarea:focus,
+.bitrix-form-wrapper .b24-form-field input:focus,
+.bitrix-form-wrapper .b24-form-field textarea:focus {
     outline: none !important;
     border-color: var(--primary-color) !important;
     box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1) !important;
 }
 
-.bitrix-form-wrapper .b24-form-control::placeholder {
+.bitrix-form-wrapper input::placeholder,
+.bitrix-form-wrapper textarea::placeholder,
+.bitrix-form-wrapper .b24-form-control::placeholder,
+.bitrix-form-wrapper .b24-form-input::placeholder,
+.bitrix-form-wrapper .b24-form-textarea::placeholder {
     color: var(--text-muted) !important;
 }
 
-.bitrix-form-wrapper .b24-form-label {
+/* Override all labels */
+.bitrix-form-wrapper label,
+.bitrix-form-wrapper .b24-form-label,
+.bitrix-form-wrapper .b24-form-field label,
+.bitrix-form-wrapper .b24-form-title {
     color: var(--text-primary) !important;
     font-weight: 600 !important;
     margin-bottom: 0.5rem !important;
     display: block !important;
     font-family: 'Inter', sans-serif !important;
+    font-size: 1rem !important;
 }
 
-.bitrix-form-wrapper .b24-form-btn {
+/* Override all buttons */
+.bitrix-form-wrapper button,
+.bitrix-form-wrapper input[type="submit"],
+.bitrix-form-wrapper .b24-form-btn,
+.bitrix-form-wrapper .b24-form-submit,
+.bitrix-form-wrapper .b24-form-button {
     background: var(--gradient-primary) !important;
     border: none !important;
     border-radius: 50px !important;
@@ -1929,29 +1964,145 @@ body {
     margin-top: 1rem !important;
 }
 
-.bitrix-form-wrapper .b24-form-btn:hover {
+.bitrix-form-wrapper button:hover,
+.bitrix-form-wrapper input[type="submit"]:hover,
+.bitrix-form-wrapper .b24-form-btn:hover,
+.bitrix-form-wrapper .b24-form-submit:hover,
+.bitrix-form-wrapper .b24-form-button:hover {
     transform: translateY(-3px) !important;
     box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4) !important;
 }
 
-.bitrix-form-wrapper .b24-form-btn:active {
+.bitrix-form-wrapper button:active,
+.bitrix-form-wrapper input[type="submit"]:active,
+.bitrix-form-wrapper .b24-form-btn:active,
+.bitrix-form-wrapper .b24-form-submit:active,
+.bitrix-form-wrapper .b24-form-button:active {
     transform: translateY(-1px) !important;
 }
 
-.bitrix-form-wrapper .b24-form-group {
+/* Override form groups and rows */
+.bitrix-form-wrapper .b24-form-group,
+.bitrix-form-wrapper .b24-form-field,
+.bitrix-form-wrapper .b24-form-row {
     margin-bottom: 1.5rem !important;
+    display: block !important;
 }
 
 .bitrix-form-wrapper .b24-form-row {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 1.5rem !important;
-    margin-bottom: 1.5rem !important;
 }
 
+/* Override textarea specifically */
+.bitrix-form-wrapper textarea,
 .bitrix-form-wrapper .b24-form-textarea {
     min-height: 120px !important;
     resize: vertical !important;
+}
+
+/* Override form title and description */
+.bitrix-form-wrapper .b24-form-title,
+.bitrix-form-wrapper .b24-form-description,
+.bitrix-form-wrapper h1,
+.bitrix-form-wrapper h2,
+.bitrix-form-wrapper h3,
+.bitrix-form-wrapper p {
+    color: var(--text-primary) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.bitrix-form-wrapper .b24-form-description {
+    color: var(--text-secondary) !important;
+    margin-bottom: 2rem !important;
+}
+
+/* Hide Bitrix branding */
+.bitrix-form-wrapper .b24-form-footer,
+.bitrix-form-wrapper .b24-form-powered,
+.bitrix-form-wrapper .b24-form-abuse {
+    display: none !important;
+}
+
+/* Maximum specificity override for Bitrix forms */
+body .bitrix-form-wrapper form,
+body .bitrix-form-wrapper .b24-form,
+body .bitrix-form-wrapper .b24-form-container {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+body .bitrix-form-wrapper input,
+body .bitrix-form-wrapper textarea,
+body .bitrix-form-wrapper select {
+    background: var(--dark-surface) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    color: var(--text-primary) !important;
+    padding: 1rem !important;
+    font-size: 1rem !important;
+    font-family: 'Inter', sans-serif !important;
+    transition: all 0.3s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 1rem !important;
+}
+
+body .bitrix-form-wrapper input:focus,
+body .bitrix-form-wrapper textarea:focus {
+    outline: none !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1) !important;
+}
+
+body .bitrix-form-wrapper label {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5rem !important;
+    display: block !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1rem !important;
+}
+
+body .bitrix-form-wrapper button,
+body .bitrix-form-wrapper input[type="submit"] {
+    background: var(--gradient-primary) !important;
+    border: none !important;
+    border-radius: 50px !important;
+    color: white !important;
+    padding: 1rem 2rem !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-family: 'Inter', sans-serif !important;
+    box-shadow: var(--shadow-glow) !important;
+    width: 100% !important;
+    margin-top: 1rem !important;
+}
+
+body .bitrix-form-wrapper button:hover,
+body .bitrix-form-wrapper input[type="submit"]:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4) !important;
+}
+
+/* Additional override for any remaining Bitrix elements */
+.bitrix-form-wrapper * {
+    box-sizing: border-box !important;
+}
+
+.bitrix-form-wrapper .b24-form-wrapper,
+.bitrix-form-wrapper .b24-form-container,
+.bitrix-form-wrapper .b24-form-content {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 /* Modal responsive */
