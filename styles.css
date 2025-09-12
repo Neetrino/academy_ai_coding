@@ -436,6 +436,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
 }
 
 .section-subtitle {
@@ -456,11 +457,11 @@ body {
     padding: 6rem 0;
     position: relative;
     z-index: 10;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    background: rgba(10, 10, 10, 0.85);
-    border-top: 1px solid rgba(0, 212, 255, 0.3);
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(10, 10, 10, 0.4);
+    border-top: 1px solid rgba(0, 212, 255, 0.2);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .modules-grid {
