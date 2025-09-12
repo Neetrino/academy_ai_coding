@@ -115,33 +115,15 @@
             </div>
             
             <div class="contact-form-container">
-                <form class="contact-form" id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Անուն</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Թեմա</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Հաղորդագրություն</label>
-                        <textarea id="message" name="message" rows="6" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-large">
-                        <i class="fas fa-paper-plane"></i>
-                        Ուղարկել հաղորդագրություն
-                    </button>
-                </form>
+                <!-- Bitrix Form -->
+                <div class="bitrix-form-wrapper">
+                    <script data-b24-form="inline/13/t86odg" data-skip-moving="true">
+                    (function(w,d,u){
+                    var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                    var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                    })(window,document,'https://cdn-ru.bitrix24.ru/b29824050/crm/form/loader_13.js');
+                    </script>
+                </div>
             </div>
         </div>
     </section>

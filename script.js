@@ -329,6 +329,61 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Modal functionality
+function initModal() {
+    const modal = document.getElementById('modalForm');
+    const closeBtn = document.getElementById('closeModal');
+    const openButtons = document.querySelectorAll('.btn-primary');
+    
+    // Open modal function
+    function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    // Close modal function
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+    
+    // Add click event to all primary buttons
+    openButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal();
+        });
+    });
+    
+    // Close modal when clicking close button
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+// Initialize modal when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait for components to load
+    setTimeout(() => {
+        initModal();
+    }, 200);
+});
+
 // Console log for debugging
 console.log('🚀 AI Coding Landing Page loaded successfully!');
 console.log('✨ All animations and interactions are ready!');
+console.log('📝 Modal form functionality initialized!');
