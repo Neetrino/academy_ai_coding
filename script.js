@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initModuleCards();
         initCounters();
         initTypingEffect();
+        initLiveChatComponent();
     }, 100);
 });
 
@@ -395,13 +396,15 @@ function initLiveChat() {
     });
 }
 
-// Initialize live chat when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Add live chat initialization to the existing timeout
-    setTimeout(() => {
-        initLiveChat();
-    }, 100);
-});
+// Initialize Live Chat Component
+function initLiveChatComponent() {
+    if (window.LiveChatComponent) {
+        window.liveChatInstance = new window.LiveChatComponent();
+        console.log('💬 Live Chat компонент инициализирован');
+    } else {
+        console.warn('⚠️ LiveChatComponent не найден');
+    }
+}
 
 // Console log for debugging
 console.log('🚀 AI Coding Landing Page loaded successfully!');
