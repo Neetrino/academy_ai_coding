@@ -2191,6 +2191,109 @@ body {
     }
 }
 
+/* Center CTA Button Styles */
+.center-cta-button {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    font-family: 'Inter', sans-serif;
+}
+
+.center-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #00d4ff 0%, #9c88ff 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+    justify-content: center;
+}
+
+.center-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.center-btn:hover::before {
+    left: 100%;
+}
+
+.center-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 212, 255, 0.4);
+}
+
+.center-btn i {
+    font-size: 1.3rem;
+    animation: centerButtonPulse 2s infinite;
+}
+
+@keyframes centerButtonPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.center-btn span {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Mobile Center Button */
+@media (max-width: 768px) {
+    .center-cta-button {
+        bottom: 1.5rem;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: calc(100% - 2rem);
+        max-width: 300px;
+    }
+    
+    .center-btn {
+        width: 100%;
+        padding: 1.2rem 2rem;
+        font-size: 1.2rem;
+        min-width: auto;
+    }
+    
+    .center-btn i {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .center-cta-button {
+        bottom: 1rem;
+        width: calc(100% - 1rem);
+    }
+    
+    .center-btn {
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+    }
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

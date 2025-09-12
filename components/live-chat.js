@@ -30,19 +30,31 @@ class LiveChatComponent {
                 <div class="chat-label">Live Chat</div>
                 <div class="chat-menu" id="chatMenu">
                     <div class="chat-options">
-                        <a href="https://wa.me/37444343000" target="_blank" class="chat-option whatsapp" title="WhatsApp">
+                        <a href="https://wa.me/37444343000?text=Բարև%21%20Ցանկանում%20եմ%20գրանցվել%20AI%20Coding%20դասընթացի%20համար%20և%20սկսել%20սովորել%20ծրագրավորում%20AI-ի%20օգնությամբ%20🚀" target="_blank" class="chat-option whatsapp" title="WhatsApp">
                             <div class="chat-option-icon">
                                 <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="chat-option-text">
+                                <span class="chat-option-title">Սկսել հիմա</span>
+                                <span class="chat-option-subtitle">WhatsApp</span>
                             </div>
                         </a>
                         <a href="https://t.me/Neetrino" target="_blank" class="chat-option telegram" title="Telegram">
                             <div class="chat-option-icon">
                                 <i class="fab fa-telegram"></i>
                             </div>
+                            <div class="chat-option-text">
+                                <span class="chat-option-title">Telegram</span>
+                                <span class="chat-option-subtitle">Արագ հաղորդակցություն</span>
+                            </div>
                         </a>
                         <a href="tel:+37444343000" class="chat-option phone" title="Զանգ">
                             <div class="chat-option-icon">
                                 <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="chat-option-text">
+                                <span class="chat-option-title">Զանգ</span>
+                                <span class="chat-option-subtitle">+374 44 343 000</span>
                             </div>
                         </a>
                     </div>
@@ -134,11 +146,11 @@ class LiveChatComponent {
         mobileMenu.className = 'mobile-chat-menu';
         mobileMenu.innerHTML = `
             <div class="mobile-menu-content">
-                <h3>Выберите способ связи:</h3>
+                <h3>Սկսել հիմա</h3>
                 <div class="mobile-options">
-                    <button onclick="window.open('https://wa.me/37444343000', '_blank')" class="mobile-option whatsapp">
+                    <button onclick="window.open('https://wa.me/37444343000?text=Բարև%21%20Ցանկանում%20եմ%20գրանցվել%20AI%20Coding%20դասընթացի%20համար%20և%20սկսել%20սովորել%20ծրագրավորում%20AI-ի%20օգնությամբ%20🚀', '_blank')" class="mobile-option whatsapp">
                         <i class="fab fa-whatsapp"></i>
-                        <span>WhatsApp</span>
+                        <span>Սկսել հիմա</span>
                     </button>
                     <button onclick="window.open('https://t.me/Neetrino', '_blank')" class="mobile-option telegram">
                         <i class="fab fa-telegram"></i>
@@ -146,10 +158,10 @@ class LiveChatComponent {
                     </button>
                     <button onclick="window.location.href='tel:+37444343000'" class="mobile-option phone">
                         <i class="fas fa-phone"></i>
-                        <span>Звонок</span>
+                        <span>Զանգ</span>
                     </button>
                 </div>
-                <button class="close-mobile-menu" onclick="this.parentElement.parentElement.remove()">Закрыть</button>
+                <button class="close-mobile-menu" onclick="this.parentElement.parentElement.remove()">Փակել</button>
             </div>
         `;
 

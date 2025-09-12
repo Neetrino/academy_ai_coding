@@ -141,6 +141,9 @@ class ComponentLoader {
         
         // Инициализируем навигацию после загрузки
         this.initNavigation();
+        
+        // Инициализируем центральную кнопку
+        this.initCenterButton();
     }
 
     /**
@@ -301,6 +304,40 @@ class ComponentLoader {
                 }
             });
         });
+    }
+
+    /**
+     * Инициализирует центральную кнопку "Սկսել հիմա"
+     */
+    initCenterButton() {
+        // Создаем центральную кнопку
+        const centerButtonHTML = `
+            <div class="center-cta-button">
+                <a href="https://wa.me/37444343000?text=Բարև%21%20Ցանկանում%20եմ%20գրանցվել%20AI%20Coding%20դասընթացի%20համար%20և%20սկսել%20սովորել%20ծրագրավորում%20AI-ի%20օգնությամբ%20🚀" target="_blank" class="center-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Սկսել հիմա</span>
+                </a>
+            </div>
+        `;
+
+        // Добавляем кнопку в body
+        document.body.insertAdjacentHTML('beforeend', centerButtonHTML);
+        
+        // Добавляем обработчики событий
+        const centerBtn = document.querySelector('.center-btn');
+        if (centerBtn) {
+            centerBtn.addEventListener('click', (e) => {
+                console.log('🚀 Центральная кнопка "Սկսել հիմա" нажата');
+                
+                // Добавляем визуальный эффект
+                centerBtn.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    centerBtn.style.transform = '';
+                }, 150);
+            });
+        }
+        
+        console.log('🎯 Центральная кнопка "Սկսել հիմա" инициализирована');
     }
 }
 
