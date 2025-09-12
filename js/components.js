@@ -23,7 +23,6 @@ class ComponentLoader {
                     </div>
                     <div class="nav-menu">
                         <a href="index.html" class="nav-link" data-page="home">Գլխավոր</a>
-                        <a href="index.html#modules" class="nav-link" data-page="modules">Մոդուլներ</a>
                         <a href="module1.html" class="nav-link" data-page="module1">AI Explorer</a>
                         <a href="module2.html" class="nav-link" data-page="module2">AI Developer</a>
                         <a href="module3.html" class="nav-link" data-page="module3">AI Product Engineer</a>
@@ -49,7 +48,6 @@ class ComponentLoader {
                         </div>
                         <div class="footer-links">
                             <a href="index.html">Գլխավոր</a>
-                            <a href="index.html#modules">Մոդուլներ</a>
                             <a href="module1.html">AI Explorer</a>
                             <a href="module2.html">AI Developer</a>
                             <a href="module3.html">AI Product Engineer</a>
@@ -140,6 +138,8 @@ class ComponentLoader {
                 return 'module2';
             case 'module3.html':
                 return 'module3';
+            case 'contact.html':
+                return 'contact';
             case 'index.html':
             case '':
                 return 'home';
