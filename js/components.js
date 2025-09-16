@@ -96,12 +96,12 @@ class ComponentLoader {
                             <a href="module1.html">I մոդուլ<br>AI Explorer</a>
                             <a href="module2.html">II մոդուլ<br>AI Developer</a>
                             <a href="module3.html">III մոդուլ<br>AI Product Engineer</a>
+                            <a href="contact.html">Կապ</a>
                         </div>
                         <div class="footer-social">
-                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=61580072707905&rdid=6SEbjXt6otXKFm6Y&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F14HMevrDCXQ%2F" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/neetrino_it_academy" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/76564971/admin/dashboard/" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                     <div class="footer-bottom">

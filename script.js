@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initCounters();
         initTypingEffect();
         initWhatsAppButtons();
+        initFAQ();
     }, 100);
 });
 
@@ -419,7 +420,29 @@ function initWhatsAppButtons() {
     });
 }
 
+// FAQ functionality
+function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', function() {
+            // Close other FAQ items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+        });
+    });
+}
+
 // Console log for debugging
 console.log('🚀 AI Coding Landing Page loaded successfully!');
 console.log('✨ All animations and interactions are ready!');
 console.log('📱 WhatsApp buttons enhanced for mobile optimization!');
+console.log('❓ FAQ functionality loaded!');
